@@ -1,0 +1,93 @@
+{
+    "name": "Decision",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "عنوان تصمیم"
+      },
+      "description": {
+        "type": "string",
+        "description": "شرح کامل تصمیم"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "strategic",
+          "operational",
+          "financial",
+          "hr",
+          "marketing",
+          "product"
+        ],
+        "description": "دسته‌بندی تصمیم"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "description": "اولویت تصمیم"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "in_progress",
+          "implemented",
+          "cancelled"
+        ],
+        "default": "pending",
+        "description": "وضعیت تصمیم"
+      },
+      "expected_outcome": {
+        "type": "string",
+        "description": "نتیجه مورد انتظار"
+      },
+      "actual_outcome": {
+        "type": "string",
+        "description": "نتیجه واقعی"
+      },
+      "stakeholders": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "ذینفعان"
+      },
+      "implementation_date": {
+        "type": "string",
+        "format": "date",
+        "description": "تاریخ اجرا"
+      },
+      "review_date": {
+        "type": "string",
+        "format": "date",
+        "description": "تاریخ بازنگری"
+      },
+      "ai_recommendation": {
+        "type": "string",
+        "description": "پیشنهاد هوش مصنوعی"
+      },
+      "risk_assessment": {
+        "type": "string",
+        "description": "ارزیابی ریسک"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "برچسب‌ها"
+      }
+    },
+    "required": [
+      "title",
+      "description",
+      "category",
+      "priority"
+    ]
+  }

@@ -1,0 +1,99 @@
+{
+    "name": "Goal",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "عنوان هدف"
+      },
+      "description": {
+        "type": "string",
+        "description": "شرح هدف"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "revenue",
+          "growth",
+          "efficiency",
+          "team",
+          "personal",
+          "strategic"
+        ],
+        "description": "دسته‌بندی هدف"
+      },
+      "target_value": {
+        "type": "number",
+        "description": "مقدار هدف"
+      },
+      "current_value": {
+        "type": "number",
+        "default": 0,
+        "description": "مقدار فعلی"
+      },
+      "unit": {
+        "type": "string",
+        "description": "واحد اندازه‌گیری"
+      },
+      "deadline": {
+        "type": "string",
+        "format": "date",
+        "description": "مهلت"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "not_started",
+          "in_progress",
+          "completed",
+          "paused",
+          "cancelled"
+        ],
+        "default": "not_started",
+        "description": "وضعیت"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "description": "اولویت"
+      },
+      "notes": {
+        "type": "string",
+        "description": "یادداشت‌ها"
+      },
+      "milestones": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            },
+            "completed": {
+              "type": "boolean",
+              "default": false
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "description": "نقاط عطف"
+      }
+    },
+    "required": [
+      "title",
+      "target_value",
+      "deadline",
+      "priority"
+    ]
+  }

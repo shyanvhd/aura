@@ -1,0 +1,115 @@
+{
+    "name": "Meeting",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "عنوان جلسه"
+      },
+      "description": {
+        "type": "string",
+        "description": "توضیحات جلسه"
+      },
+      "date": {
+        "type": "string",
+        "format": "datetime-local",
+        "description": "تاریخ و زمان"
+      },
+      "duration": {
+        "type": "number",
+        "description": "مدت زمان به دقیقه"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "strategy",
+          "operational",
+          "team",
+          "review",
+          "planning",
+          "other"
+        ],
+        "description": "نوع جلسه"
+      },
+      "participants": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "شرکت‌کنندگان"
+      },
+      "agenda": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "number"
+            },
+            "owner": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "دستور جلسه"
+      },
+      "notes": {
+        "type": "string",
+        "description": "یادداشت‌های جلسه"
+      },
+      "action_items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "task": {
+              "type": "string"
+            },
+            "assignee": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string",
+              "format": "date"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "in_progress",
+                "completed"
+              ],
+              "default": "pending"
+            }
+          }
+        },
+        "description": "اقدامات پیگیری"
+      },
+      "decisions_made": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "تصمیمات گرفته شده"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "scheduled",
+          "in_progress",
+          "completed",
+          "cancelled"
+        ],
+        "default": "scheduled",
+        "description": "وضعیت جلسه"
+      }
+    },
+    "required": [
+      "title",
+      "date",
+      "type"
+    ]
+  }
